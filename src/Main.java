@@ -7,12 +7,12 @@ public class Main {
         //SuperSorter.bubbleSort(array);
         SuperSorter.insertionSort(array);
 
-        long methodTime = System.nanoTime() - startTime;
+        long sortTime = System.nanoTime() - startTime;
 
         for (int item : array) {
             System.out.print(item + " ");
         }
-        System.out.println("\nRun time: " + methodTime + " ns");
+        System.out.println("\nSort time: " + sortTime + " ns");
     }
 
     public static int[] createFilledArray(int length) {

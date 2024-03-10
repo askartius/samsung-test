@@ -1,18 +1,25 @@
 public class Main {
     public static void main(String[] args) {
-        int[] array = createFilledArray(1000);
+        int[] array = new int[0];
+        long sortingDuration = 0;
 
-        long startTime = System.nanoTime();
+        // Count an average duration of 100 sorts
+        for (int iter = 0; iter < 100; iter++) {
+            array = createFilledArray(10000);
+            long startTime = System.nanoTime();
 
-        //SuperSorter.bubbleSort(array);
-        SuperSorter.insertionSort(array);
+            //SuperSorter.bubbleSort(array);
+            //SuperSorter.insertionSort(array);
+            SuperSorter.quickSort(array, 0, array.length - 1);
 
-        long sortTime = System.nanoTime() - startTime;
+            sortingDuration += System.nanoTime() - startTime;
+        }
+        sortingDuration /= 100;
 
         for (int item : array) {
             System.out.print(item + " ");
         }
-        System.out.println("\nSort time: " + sortTime + " ns");
+        System.out.println("\nSorting duration: " + sortingDuration / 1000 + " mks");
     }
 
     public static int[] createFilledArray(int length) {
